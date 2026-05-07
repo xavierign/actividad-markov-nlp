@@ -95,9 +95,9 @@ NLP es el campo que permite a las computadoras entender y procesar lenguaje huma
 2. **Ejecuta las Celdas en Orden:**
    - **Celda 1:** Carga el texto de `crimen_y_castigo.txt`.
    - **Celda 2:** Preprocesa el texto (limpia y tokeniza). Responde: Top 5 palabras más frecuentes.
-   - **Celda 3:** Construye modelo Markov orden 1. Responde: Completa "el perdón" con 5 palabras.
-   - **Celda 4:** Modelo orden 2. Responde: Completa "el perdón" con 10 palabras.
-   - **Celda 5:** Modelo orden 3. Responde: Completa "el perdón" con 15 palabras.
+   - **Celda 3:** Construye modelo Markov orden 1. Responde: Completa "el mundo" con 5 palabras.
+   - **Celda 4:** Modelo orden 2. Responde: Completa "el mundo" con 10 palabras.
+   - **Celda 5:** Modelo orden 3. Responde: Completa "el mundo y" con 15 palabras.
 
 3. **Preguntas para el Foro:**
    - Publica tus respuestas a las preguntas anteriores.
@@ -123,8 +123,15 @@ En forma de tabla, un fragmento de la matriz de transición sería:
 Esto ayuda a entender cómo el modelo usa solo el estado presente para elegir la siguiente palabra.
 
 **Ejemplo de Generación:**
-- Orden 1: "el perdón el hombre el tiempo" (poco coherente).
-- Orden 3: "el perdón es una decisión que transforma la vida" (más natural).
+- Orden 1: "el mundo y se le había" (poco coherente).
+- Orden 3: "el mundo y no hay secreto que no se había engañado era de su propiedad" (más natural).
+
+## Respuestas Esperadas (para referencia del docente)
+
+- **Top 5 palabras más frecuentes:** de (8383), que (5661), la (5348), a (4935), y (4252).
+- **Orden 1 (el mundo + 5 palabras):** el mundo y se le había sido
+- **Orden 2 (el mundo + 10 palabras):** el mundo y no se trata de eso a que se le
+- **Orden 3 (el mundo y + 15 palabras):** el mundo y no hay secreto que no se había engañado era de su propiedad y no de
 
 ## Recursos Adicionales
 - [Documentación NLTK](https://www.nltk.org/)
