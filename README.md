@@ -126,13 +126,6 @@ Esto ayuda a entender cómo el modelo usa solo el estado presente para elegir la
 - Orden 1: "el mundo y se le había" (poco coherente).
 - Orden 3: "el mundo y no hay secreto que no se había engañado era de su propiedad" (más natural).
 
-## Respuestas Esperadas (para referencia del docente)
-
-- **Top 5 palabras más frecuentes:** de (8383), que (5661), la (5348), a (4935), y (4252).
-- **Orden 1 (el mundo + 5 palabras):** el mundo y se le había sido
-- **Orden 2 (el mundo + 10 palabras):** el mundo y no se trata de eso a que se le
-- **Orden 3 (el mundo y + 15 palabras):** el mundo y no hay secreto que no se había engañado era de su propiedad y no de
-
 ## Recursos Adicionales
 - [Documentación NLTK](https://www.nltk.org/)
 - [Cadenas de Markov en Wikipedia](https://es.wikipedia.org/wiki/Cadena_de_M%C3%A1rkov)
