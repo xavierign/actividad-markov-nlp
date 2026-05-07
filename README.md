@@ -62,7 +62,7 @@ for estado, lista in transiciones.items():
 ```
 Estado Actual: "el"
 Transiciones:
-- "perdon" → 0.2
+- "perdón" → 0.2
 - "hombre" → 0.15
 - "tiempo" → 0.1
 ...
@@ -78,7 +78,7 @@ Transiciones:
 
 NLP es el campo que permite a las computadoras entender y procesar lenguaje humano. En esta actividad, usamos técnicas simples:
 
-- **Tokenización:** Dividir el texto en unidades (palabras). Ejemplo: "El perdon es ciego" → ["El", "perdon", "es", "ciego"].
+- **Tokenización:** Dividir el texto en unidades (palabras). Ejemplo: "El perdón es ciego" → ["El", "perdón", "es", "ciego"].
 - **Limpieza:** Remover puntuación, convertir a minúsculas, eliminar stopwords (palabras comunes como "el", "la").
 - **Análisis de Frecuencia:** Contar ocurrencias de palabras para identificar patrones.
 - **Generación de Texto:** Usar probabilidades para crear frases nuevas basadas en el modelo.
@@ -95,9 +95,9 @@ NLP es el campo que permite a las computadoras entender y procesar lenguaje huma
 2. **Ejecuta las Celdas en Orden:**
    - **Celda 1:** Carga el texto de `crimen_y_castigo.txt`.
    - **Celda 2:** Preprocesa el texto (limpia y tokeniza). Responde: Top 5 palabras más frecuentes.
-   - **Celda 3:** Construye modelo Markov orden 1. Responde: Completa "el perdon" con 5 palabras.
-   - **Celda 4:** Modelo orden 2. Responde: Completa "el perdon" con 10 palabras.
-   - **Celda 5:** Modelo orden 3. Responde: Completa "el perdon" con 15 palabras.
+   - **Celda 3:** Construye modelo Markov orden 1. Responde: Completa "el perdón" con 5 palabras.
+   - **Celda 4:** Modelo orden 2. Responde: Completa "el perdón" con 10 palabras.
+   - **Celda 5:** Modelo orden 3. Responde: Completa "el perdón" con 15 palabras.
 
 3. **Preguntas para el Foro:**
    - Publica tus respuestas a las preguntas anteriores.
@@ -109,22 +109,22 @@ NLP es el campo que permite a las computadoras entender y procesar lenguaje huma
 
 Imagina que el estado actual es la palabra "el". En un modelo de Markov de orden 1, la siguiente palabra se elige solo en función de la palabra actual.
 
-- Si el modelo dice que "perdon" sigue a "el" con probabilidad 0.2, significa que el 20% de las veces la palabra siguiente es "perdon".
+- Si el modelo dice que "perdón" sigue a "el" con probabilidad 0.2, significa que el 20% de las veces la palabra siguiente es "perdón".
 - Otras posibles continuaciones pueden ser "hombre", "tiempo", etc.
 
 En forma de tabla, un fragmento de la matriz de transición sería:
 
 | Estado actual | Siguiente palabra | Probabilidad |
 |--------------|-------------------|--------------|
-| el           | perdon            | 0.2          |
+| el           | perdón            | 0.2          |
 | el           | hombre            | 0.15         |
 | el           | tiempo            | 0.1          |
 
 Esto ayuda a entender cómo el modelo usa solo el estado presente para elegir la siguiente palabra.
 
 **Ejemplo de Generación:**
-- Orden 1: "el perdon el hombre el tiempo" (poco coherente).
-- Orden 3: "el perdon es una decisión que transforma la vida" (más natural).
+- Orden 1: "el perdón el hombre el tiempo" (poco coherente).
+- Orden 3: "el perdón es una decisión que transforma la vida" (más natural).
 
 ## Recursos Adicionales
 - [Documentación NLTK](https://www.nltk.org/)
