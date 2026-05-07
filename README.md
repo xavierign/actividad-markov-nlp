@@ -47,7 +47,7 @@ Transiciones:
 
 NLP es el campo que permite a las computadoras entender y procesar lenguaje humano. En esta actividad, usamos técnicas simples:
 
-- **Tokenización:** Dividir el texto en unidades (palabras). Ejemplo: "El amor es ciego" → ["El", "amor", "es", "ciego"].
+- **Tokenización:** Dividir el texto en unidades (palabras). Ejemplo: "El perdon es ciego" → ["El", "perdon", "es", "ciego"].
 - **Limpieza:** Remover puntuación, convertir a minúsculas, eliminar stopwords (palabras comunes como "el", "la").
 - **Análisis de Frecuencia:** Contar ocurrencias de palabras para identificar patrones.
 - **Generación de Texto:** Usar probabilidades para crear frases nuevas basadas en el modelo.
@@ -64,9 +64,9 @@ NLP es el campo que permite a las computadoras entender y procesar lenguaje huma
 2. **Ejecuta las Celdas en Orden:**
    - **Celda 1:** Carga el texto de `crimen_y_castigo.txt`.
    - **Celda 2:** Preprocesa el texto (limpia y tokeniza). Responde: Top 5 palabras más frecuentes.
-   - **Celda 3:** Construye modelo Markov orden 1. Responde: Completa "el amor" con 5 palabras.
-   - **Celda 4:** Modelo orden 2. Responde: Completa "el amor" con 10 palabras.
-   - **Celda 5:** Modelo orden 3. Responde: Completa "el amor" con 15 palabras.
+- **Celda 3:** Construye modelo Markov orden 1. Responde: Completa "el perdon" con 5 palabras.
+- **Celda 4:** Modelo orden 2. Responde: Completa "el perdon" con 10 palabras.
+- **Celda 5:** Modelo orden 3. Responde: Completa "el perdon" con 15 palabras.
 
 3. **Preguntas para el Foro:**
    - Publica tus respuestas a las preguntas anteriores.
@@ -84,8 +84,8 @@ NLP es el campo que permite a las computadoras entender y procesar lenguaje huma
 (Descripción: Flechas muestran probabilidades de transición desde "el").
 
 **Ejemplo de Generación:**
-- Orden 1: "el amor el hombre el tiempo" (poco coherente).
-- Orden 3: "el amor es una pasión que consume el alma" (más natural).
+- Orden 1: "el perdon el hombre el tiempo" (poco coherente).
+- Orden 3: "el perdon es una decisión que transforma la vida" (más natural).
 
 ## Recursos Adicionales
 - [Documentación NLTK](https://www.nltk.org/)
