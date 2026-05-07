@@ -19,29 +19,60 @@ Esta actividad introduce conceptos fundamentales de **cadenas de Markov** y **pr
 
 ### 1. Cadenas de Markov
 
-Un **proceso estocástico** es una colección de variables aleatorias indexadas por tiempo, donde el futuro depende del presente, no del pasado (propiedad de Markov). Una **cadena de Markov** es un tipo específico de proceso estocástico discreto en tiempo, usado en Investigación Operativa para modelar sistemas como colas, inventarios o decisiones secuenciales.
+Un **proceso estocástico** es una colección de variables aleatorias indexadas en el tiempo, donde el valor futuro se modela con probabilidades y depende del estado presente. En una **cadena de Markov**, esa dependencia se restringe al estado actual o a un número limitado de estados anteriores.
 
-- **Estado:** En esta actividad, un "estado" es una palabra (o secuencia de palabras).
-- **Transición:** Probabilidad de pasar de un estado a otro.
-- **Matriz de Transición:** Tabla que resume las probabilidades entre estados.
+- **Estado:** En esta actividad, un "estado" es una palabra o una secuencia de palabras.
+- **Transición:** Es la probabilidad de pasar de un estado a otro.
+- **Matriz de Transición:** Es una tabla que resume las probabilidades de cada posible salto entre estados.
 
 #### Orden de la Cadena:
-- **Orden 0:** Cada palabra es independiente (no usa contexto).
-- **Orden 1:** La siguiente palabra depende solo de la anterior. Ejemplo: Si "el" precede a "amor" con probabilidad 0.1, entonces P(siguiente | "el") = 0.1 para "amor".
-- **Orden 2:** Depende de las dos palabras anteriores. Mejora la coherencia.
-- **Orden 3:** Depende de las tres anteriores. Más preciso, pero requiere más datos.
+- **Orden 0:** Cada palabra se elige sin contexto. No hay dependencia entre estados.
+- **Orden 1:** La siguiente palabra depende solo de la palabra anterior.
+- **Orden 2:** La siguiente palabra depende de las dos palabras anteriores.
+- **Orden 3:** La siguiente palabra depende de las tres palabras anteriores.
+
+En general, a mayor orden, el modelo captura más contexto, pero también requiere más datos para estimar las probabilidades.
+
+### Cómo construir un modelo de Markov
+
+1. Tokenizar el texto en palabras limpias.
+2. Para cada orden, contar las secuencias:
+   - Orden 1: contar cuántas veces cada palabra sigue a la palabra actual.
+   - Orden 2: contar cuántas veces cada palabra sigue a un par de palabras anteriores.
+   - Orden 3: contar cuántas veces cada palabra sigue a una triple anterior.
+3. Construir una tabla de transiciones usando diccionarios:
+   - Para orden 1: `transiciones[palabra_actual].append(palabra_siguiente)`.
+   - Para orden 2: `transiciones[(palabra_a, palabra_b)].append(palabra_siguiente)`.
+4. Calcular probabilidades condicionales dividiendo el conteo de cada siguiente palabra por el total de ocurrencias del estado.
+5. Generar texto seleccionando la siguiente palabra según esas probabilidades y avanzando el estado.
+
+**Pseudocódigo:**
+```
+for i in range(len(tokens) - orden):
+    estado = tokens[i:i+orden]
+    siguiente = tokens[i+orden]
+    transiciones[tuple(estado)].append(siguiente)
+
+for estado, lista in transiciones.items():
+    contar = Counter(lista)
+    probabilidades[estado] = {sig: count/len(lista) for sig, count in contar.items()}
+```
 
 **Ejemplo Visual (Orden 1):**
 ```
 Estado Actual: "el"
 Transiciones:
-- "amor" → 0.2
+- "perdon" → 0.2
 - "hombre" → 0.15
 - "tiempo" → 0.1
 ...
 ```
 
-**Aplicación en IO:** Modelar cadenas de suministro donde el estado es el nivel de inventario, y transiciones representan ventas/demandas.
+**Ejemplo en colas:** El estado puede ser el número de clientes en fila; la transición describe la probabilidad de que llegue un nuevo cliente o que se atienda uno.
+
+**Ejemplo en inventarios:** El estado es la cantidad en stock; la transición describe la probabilidad de recibir inventario o vender unidades.
+
+**Ejemplo de decisiones secuenciales:** En un proceso de control de producción, el estado puede ser el nivel de inventario y la transición depende de la demanda y las órdenes de reposición.
 
 ### 2. Procesamiento de Lenguaje Natural (NLP) Básico
 
@@ -57,16 +88,16 @@ NLP es el campo que permite a las computadoras entender y procesar lenguaje huma
 ## Instrucciones de la Actividad
 
 1. **Descarga y Configuración:**
-   - Clona este repositorio de GitHub.
+   - Descarga el material y trabaja con los archivos localmente.
    - Abre `actividad_markov.ipynb` en Jupyter Notebook o VS Code.
    - Asegúrate de tener Python instalado con las bibliotecas: `nltk`, `numpy`, `matplotlib`.
 
 2. **Ejecuta las Celdas en Orden:**
    - **Celda 1:** Carga el texto de `crimen_y_castigo.txt`.
    - **Celda 2:** Preprocesa el texto (limpia y tokeniza). Responde: Top 5 palabras más frecuentes.
-- **Celda 3:** Construye modelo Markov orden 1. Responde: Completa "el perdon" con 5 palabras.
-- **Celda 4:** Modelo orden 2. Responde: Completa "el perdon" con 10 palabras.
-- **Celda 5:** Modelo orden 3. Responde: Completa "el perdon" con 15 palabras.
+   - **Celda 3:** Construye modelo Markov orden 1. Responde: Completa "el perdon" con 5 palabras.
+   - **Celda 4:** Modelo orden 2. Responde: Completa "el perdon" con 10 palabras.
+   - **Celda 5:** Modelo orden 3. Responde: Completa "el perdon" con 15 palabras.
 
 3. **Preguntas para el Foro:**
    - Publica tus respuestas a las preguntas anteriores.
@@ -76,9 +107,9 @@ NLP es el campo que permite a las computadoras entender y procesar lenguaje huma
 
 **Figura 1: Diagrama de Transición Orden 1**
 ```
-[el] --> [amor] (0.2)
-   |     |
-   v     v
+[el] --> [perdon] (0.2)
+   |       |
+   v       v
 [hombre] [tiempo]
 ```
 (Descripción: Flechas muestran probabilidades de transición desde "el").
