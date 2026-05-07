@@ -2,26 +2,24 @@
 
 ## Descripción General
 
-Esta actividad introduce conceptos fundamentales de **cadenas de Markov** y **procesamiento de lenguaje natural (NLP)** aplicados a un texto literario. Utilizaremos el texto de "El crimen y el castigo" de Fyodor Dostoevsky para construir modelos probabilísticos que generen texto y analicen transiciones de palabras. La actividad está diseñada con niveles progresivos de dificultad, desde conceptos básicos hasta aplicaciones avanzadas.
+Esta actividad introduce conceptos fundamentales de **cadenas de Markov** y **procesamiento de lenguaje natural (NLP)** aplicados a un texto literario. Utilizaremos el texto de "El crimen y el castigo" de Fyodor Dostoevsky para construir modelos probabilísticos que generen texto y analicen transiciones de palabras.
 
 **Objetivos de Aprendizaje:**
 - Comprender qué son las cadenas de Markov y su aplicación en modelado probabilístico.
 - Introducir técnicas básicas de NLP: tokenización, limpieza de texto y análisis de frecuencia.
 - Aplicar modelos de Markov de diferentes órdenes para generar y completar texto.
-- Reflexionar sobre aplicaciones en Investigación Operativa (e.g., modelado de procesos estocásticos).
 
-**Tiempo Estimado:** 2 horas.  
 **Entrega:** Respuestas en el foro del curso, completando frases específicas y adjuntando el enlace al notebook Jupyter con el código ejecutado.
 
 **Archivos Necesarios:**
 - `crimen_y_castigo.txt`: Texto limpio de la novela (descargado de Project Gutenberg).
-- `actividad_markov.ipynb`: Notebook Jupyter con el código base.
+- `actividad_markov.ipynb`: Notebook Jupyter con un esqueleto de código.
 
 ## Conceptos Teóricos
 
 ### 1. Cadenas de Markov
 
-Una **cadena de Markov** es un modelo matemático que describe una secuencia de eventos donde el estado futuro depende únicamente del estado actual, no del pasado (propiedad de Markov). Se usa en Investigación Operativa para modelar procesos estocásticos como colas, inventarios o decisiones secuenciales.
+Un **proceso estocástico** es una colección de variables aleatorias indexadas por tiempo, donde el futuro depende del presente, no del pasado (propiedad de Markov). Una **cadena de Markov** es un tipo específico de proceso estocástico discreto en tiempo, usado en Investigación Operativa para modelar sistemas como colas, inventarios o decisiones secuenciales.
 
 - **Estado:** En esta actividad, un "estado" es una palabra (o secuencia de palabras).
 - **Transición:** Probabilidad de pasar de un estado a otro.
@@ -65,15 +63,14 @@ NLP es el campo que permite a las computadoras entender y procesar lenguaje huma
 
 2. **Ejecuta las Celdas en Orden:**
    - **Celda 1:** Carga el texto de `crimen_y_castigo.txt`.
-   - **Celda 2:** Preprocesa el texto (limpia y tokeniza). Responde: ¿Cuál es la palabra más frecuente?
-   - **Celda 3:** Construye modelo Markov orden 1. Responde: Completa "el amor" con la palabra más probable.
-   - **Celda 4:** Modelo orden 2. Responde: Completa "el amor" con 3 palabras.
-   - **Celda 5:** Modelo orden 3 y generación. Responde: Genera 20 palabras a partir de "el amor es" y analiza la coherencia.
+   - **Celda 2:** Preprocesa el texto (limpia y tokeniza). Responde: Top 5 palabras más frecuentes.
+   - **Celda 3:** Construye modelo Markov orden 1. Responde: Completa "el amor" con 5 palabras.
+   - **Celda 4:** Modelo orden 2. Responde: Completa "el amor" con 10 palabras.
+   - **Celda 5:** Modelo orden 3. Responde: Completa "el amor" con 15 palabras.
 
 3. **Preguntas para el Foro:**
    - Publica tus respuestas a las preguntas anteriores.
-   - Adjunta el enlace al notebook (e.g., GitHub Gist o repo personal).
-   - Reflexión: ¿Cómo mejora la coherencia con órdenes mayores? ¿Ejemplos en IO?
+   - Adjunta el enlace al notebook.
 
 ## Figuras y Ejemplos
 
