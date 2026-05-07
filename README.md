@@ -105,14 +105,22 @@ NLP es el campo que permite a las computadoras entender y procesar lenguaje huma
 
 ## Figuras y Ejemplos
 
-**Figura 1: Diagrama de Transición Orden 1**
-```
-[el] --> [perdon] (0.2)
-   |       |
-   v       v
-[hombre] [tiempo]
-```
-(Descripción: Flechas muestran probabilidades de transición desde "el").
+**Ejemplo de transición orden 1**
+
+Imagina que el estado actual es la palabra "el". En un modelo de Markov de orden 1, la siguiente palabra se elige solo en función de la palabra actual.
+
+- Si el modelo dice que "perdon" sigue a "el" con probabilidad 0.2, significa que el 20% de las veces la palabra siguiente es "perdon".
+- Otras posibles continuaciones pueden ser "hombre", "tiempo", etc.
+
+En forma de tabla, un fragmento de la matriz de transición sería:
+
+| Estado actual | Siguiente palabra | Probabilidad |
+|--------------|-------------------|--------------|
+| el           | perdon            | 0.2          |
+| el           | hombre            | 0.15         |
+| el           | tiempo            | 0.1          |
+
+Esto ayuda a entender cómo el modelo usa solo el estado presente para elegir la siguiente palabra.
 
 **Ejemplo de Generación:**
 - Orden 1: "el perdon el hombre el tiempo" (poco coherente).
